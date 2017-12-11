@@ -1,22 +1,17 @@
 'use strict';
 
 module.exports = function(app) {
-  app.dataSources.mysqlDs.automigrate('CoffeeShop', function(err) {
+  app.dataSources.db.automigrate('admin', function(err) {
     if (err) throw err;
 
-    app.models.CoffeeShop.create([{
-      name: 'Bel Cafe',
-      city: 'Vancouver',
-    }, {
-      name: 'Three Bees Coffee House',
-      city: 'San Mateo',
-    }, {
-      name: 'Caffe Artigiano',
-      city: 'Vancouver',
-    }], function(err, coffeeShops) {
+    app.models.admin.create([{
+      username: 'admin',
+      password: 'admin',
+      email: 'admin@admin.com'
+    }], function(err, admin) {
       if (err) throw err;
 
-      console.log('Models created: \n', coffeeShops);
+      console.log('Models created: \n', admin);
     });
   });
 };

@@ -1,0 +1,24 @@
+{
+  "name": "admin",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+  },
+  "validations": [],
+  "relations": {
+    "articles": {
+      "type": "hasMany",
+      "model": "article",
+      "foreignKey": "authorId"
+    }
+  },
+  "acls": [
+  	{
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "*"
+    }
+  ],
+  "methods": {}
+}
