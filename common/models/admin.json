@@ -1,7 +1,8 @@
 {
   "name": "admin",
-  "base": "PersistedModel",
+  "base": "User",
   "idInjection": true,
+  "forceId": false,
   "properties": {
   },
   "validations": [],

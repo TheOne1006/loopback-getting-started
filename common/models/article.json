@@ -2,6 +2,7 @@
   "name": "article",
   "base": "PersistedModel",
   "idInjection": true,
+  "forceId": false,
   "properties": {
     "title": {
       "type": "string",
@@ -24,6 +25,35 @@
     }
   },
   "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "api_common"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "group_a",
+      "permission": "ALLOW",
+      "property": [
+        "api_common",
+        "api_a"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "group_b",
+      "permission": "ALLOW",
+      "property": [
+        "api_common",
+        "api_b"
+      ]
+    }
   ],
   "methods": {}
 }
